@@ -1,9 +1,11 @@
-FROM node
+FROM node:18-alpine
 
 WORKDIR  app/
 
-COPY ..
+COPY package*.json ./
 
-PORT : 8080
+Run npm install
 
-CMD  ["npm install", "start"]
+EXPOSE 8080
+
+CMD  ["npm", "start"]
